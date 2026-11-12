@@ -1,15 +1,14 @@
-from ucitavanje import ucitaj
-# poredice se pasusi od npr 80 reci sa fiksnim secenjem od nzm kolko reci (trenutno)
+from ucitavanje import ucitaj, fiksni_split
+# poredice se pasus sa fiksnim delom od 100 reci
 lista_pasusa = ucitaj()
+lista_fiksnih_delova = fiksni_split(lista_pasusa, 100) # 1034 frag
 #print(lista_pasusa[-1])
-
-fragment = "" # 80 reci chunkovi
 lista_fragmenata=[]
+
 for ime_splita, pasus in lista_pasusa:
-    if len(fragment.split()) < 80:
-        fragment += pasus
-    else:
-        #print(fragment_od_80,"\n",len(fragment_od_80.split()))
-        lista_fragmenata.append(fragment)
-        fragment = ""
-        break
+    lista_fragmenata.append(pasus)
+
+print(len(lista_fragmenata), len(lista_fiksnih_delova))
+# for i, (ime, tekst) in enumerate(lista_pasusa):
+#     if "MOBUTO, MARVIN" in tekst:
+#         print(i, ime)
