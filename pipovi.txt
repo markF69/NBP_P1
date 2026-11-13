@@ -1,1 +1,2 @@
 pip install ebooklib beautifulsoup4 sentence-transformers faiss-cpu groq
+pip install python-dotenv
