@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 def configure_groq_client():
-    GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+    GROQ_API_KEY = os.getenv("GROQ_API_KEY") # cita iz .env fajla a ne iz sistem putanje
     if not GROQ_API_KEY:
         raise ValueError("Postavite environment varijablu GROQ_API_KEY.")
 

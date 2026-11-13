@@ -23,7 +23,7 @@ odg_list = ["MOBUTO, MARVIN, STAFFSERGEANT",
 pasusi = ucitaj()
 lista_fiksnih_delova = fiksni_split(pasusi, 100) # 1034 frag
 
-lista_pasusa=[]
+lista_pasusa=[] # oko 2900 frag
 
 for ime_splita, pasus in pasusi:
     lista_pasusa.append(pasus)
