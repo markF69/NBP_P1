@@ -23,7 +23,7 @@ def generate_llm_answer(query, retrieved_text, groq_client=None, llm_model="open
             {"role": "user", "content": f"Context:\n{context}\n\nQuestion: {query}\n\nAnswer:"}
         ],
         model=llm_model,
-        temperature=1.2,
+        temperature=0.7,
         max_tokens=2048
     )
     return response.choices[0].message.content

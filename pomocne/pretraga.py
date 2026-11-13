@@ -13,9 +13,9 @@ def pretrazi(pitanje, indeks, lista, k=5):
     # relevantne recenice za dati upit
     retrieved_sentences = [lista[i] for i in indices[0]]
 
-    # for i, fragment in enumerate(retrieved_sentences):
-    #     slicnost = (1 - distances[0][i] / 2) * 100
-    #     print(f"Relevantna recenica {i+1}, slicnost {slicnost:.1f}%, distanca {distances[0][i]:.4f}\n{fragment}")
-    #     print("-"*60)
+    for i, fragment in enumerate(retrieved_sentences):
+        slicnost = (1 - distances[0][i] / 2) * 100
+        print(f"Relevantna recenica {i+1}, slicnost {slicnost:.1f}%, distanca {distances[0][i]:.4f}\n{fragment}")
+        print("-"*60)
 
     return retrieved_sentences
