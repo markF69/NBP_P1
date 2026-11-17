@@ -46,4 +46,6 @@ def fiksni_split(pasusi, velicina):
     for i in range(0, len(reci), velicina):
         deo = reci[i:i+velicina]
         delovi.append(" ".join(deo))
+        # if i + velicina >= len(reci):
+        #     break
     return delovi
