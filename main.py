@@ -11,7 +11,7 @@ pitanje2 = "What did the timer read while the Master Chief was driving the warth
 # chapter 12, odg 01:10:20
 pitanje3 = "Since the enemy had taken to watching the humans, what else did they do?"
 # ch 7 - odg je "making note of which routes they took, and setting ambushes along the way"
-# poredjenje pasusa ovde daje tacan(i brzi) odgovor zato sto je fiksnoj celini kontekst presecen na pola, samim tim prvi deo krene dobro al onda izhalucinira ostatak odgovora
+# poredjenje pasusa ovde daje tacan odgovor zato sto je fiksnoj celini kontekst presecen na pola, samim tim prvi deo krene dobro al onda izhalucinira ostatak odgovora
 # glavni prikaz mane secenja na fiksne delove
 
 pitanja_list = [pitanje1,pitanje2,pitanje3]
