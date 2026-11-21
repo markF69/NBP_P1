@@ -1,4 +1,4 @@
-from pomocne.ucitavanje import ucitaj, fiksni_split
+from pomocne.ucitavanje import ucitaj, fiksni_split, fiksni_preklapanje
 from pomocne.embedding import embeduj
 from pomocne.indeksiranje import indeksiraj
 from pomocne.pretraga import pretrazi
@@ -28,13 +28,19 @@ lista_pasusa=[] # oko 2900 frag
 for ime_splita, pasus in pasusi:
     lista_pasusa.append(pasus)
 
+lista_fiksnih_preklapanje = fiksni_preklapanje(pasusi, 100, 20) # oko 1290 frag
+
 #print(len(lista_pasusa), len(lista_fiksnih_delova))
 
 vektori_pasusa = embeduj(lista_pasusa)
 vektori_fiksno = embeduj(lista_fiksnih_delova)
 
+vektori_fiksno_preklapanje = embeduj(lista_fiksnih_preklapanje)
+
 indeks_pasusa = indeksiraj(vektori_pasusa)
 indeks_fiksno = indeksiraj(vektori_fiksno)
+
+indeks_fiksno_preklapanje = indeksiraj(vektori_fiksno_preklapanje)
 
 #print(indeks_pasusa.ntotal,"\n----\n",indeks_fiksno.ntotal)
 groq_client = configure_groq_client()
@@ -44,14 +50,18 @@ for i, pitanje in enumerate(pitanja_list):
     top_pasusi = pretrazi(pitanje, indeks_pasusa, lista_pasusa)
     print("-----------Fiksni-----------")
     top_fiksni = pretrazi(pitanje, indeks_fiksno, lista_fiksnih_delova)
+    print("-----------Fiksni sa preklapanjem-----------")
+    top_fiksni_preklapanje = pretrazi(pitanje, indeks_fiksno_preklapanje, lista_fiksnih_preklapanje)
 
     odgovor_a = generate_llm_answer(pitanje, top_pasusi, groq_client)
     odgovor_b = generate_llm_answer(pitanje, top_fiksni, groq_client)
+    odgovor_c = generate_llm_answer(pitanje, top_fiksni_preklapanje, groq_client)
 
     print("\n\nPitanje: ", pitanje)
     print("Odgovor: ", odg_list[i])
     print("\nLLM odgovor A(pasus): ", odgovor_a)
     print("LLM odgovor B(fiksne celine): ", odgovor_b)
+    print("LLM odgovor C(fiksne celine sa preklapanjem): ", odgovor_c)
 
     print("\n"*2)
     print("_"*60)

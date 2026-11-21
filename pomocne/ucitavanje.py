@@ -49,3 +49,18 @@ def fiksni_split(pasusi, velicina):
         # if i + velicina >= len(reci):
         #     break
     return delovi
+
+def fiksni_preklapanje(pasusi, velicina, preklapanje):
+    reci = []
+    for ime_splita, tekst in pasusi:
+        for rec in tekst.split():
+            reci.append(rec)
+
+    korak = velicina - preklapanje
+
+    delovi = []
+    for i in range(0, len(reci), korak):
+        deo = reci[i:i+velicina]
+        delovi.append(" ".join(deo))
+
+    return delovi
